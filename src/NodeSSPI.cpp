@@ -888,7 +888,7 @@ Napi::Value Authenticate(const Napi::CallbackInfo& info) {
 		};
 
 		if (_stricmp(schema.c_str(), "basic") == 0) {
-			basic_authentication(env, opts, req, res, conn, pToken, sz, cb);
+			throw NodeSSPIException("Cannot use basic authentication.");
 		}
 		else {
 			sspi_authentication(env, opts, req, res, schema, conn, pToken, sz, cb);
